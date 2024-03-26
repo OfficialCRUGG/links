@@ -9,8 +9,8 @@ export const links: Link[] = [
   },
   {
     title: "Mastodon",
-    url: "https://mastodon.social/%m",
-    username: "@crugg@mastodon.social",
+    url: "https://mastodon.world/@%m",
+    username: "@crugg@mastodon.world",
     language: "en",
   },
   {

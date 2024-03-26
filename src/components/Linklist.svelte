@@ -43,7 +43,7 @@
       case " ":
         if (index === -1) return;
         function open(link: Link) {
-          window.open(formatLink(link), "_blank");
+          document.location.href = formatLink(link);
         }
         if (index < activeLinks.length) {
           open(activeLinks[index]);
@@ -77,7 +77,6 @@
       <a
         on:mouseenter={() => (index = i)}
         href={formatLink(link)}
-        target="_blank"
         rel="noopener noreferrer"
         class={(active ? "active" : "") + " squiggly"}
       >
@@ -122,7 +121,6 @@
             <a
               on:mouseenter={() => (index = actualIndex)}
               href={formatLink(link)}
-              target="_blank"
               rel="noopener noreferrer"
               class={(active ? "active" : "") + " squiggly"}
             >
