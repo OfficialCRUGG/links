@@ -1,0 +1,65 @@
+html,
+body,
+#app,
+ul,
+li,
+p,
+h1,
+h2 {
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body,
+#app {
+  overflow: hidden;
+}
+
+@font-face {
+  font-family: "HelvetiHand";
+  src: url("HelvetiHand.ttf") format("truetype");
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  font-family: "HelvetiHand", "Comic Sans MS", cursive;
+  background: #ccc;
+  color: black;
+  padding-top: 5rem;
+}
+
+#contents {
+  max-width: 500px;
+  width: 100%;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+@keyframes squiggly-anim {
+  0% {
+    filter: url("#squiggly-0");
+  }
+  25% {
+    filter: url("#squiggly-1");
+  }
+  50% {
+    filter: url("#squiggly-2");
+  }
+  75% {
+    filter: url("#squiggly-3");
+  }
+  100% {
+    filter: url("#squiggly-4");
+  }
+}
+
+.squiggly {
+  animation: squiggly-anim 3s steps(6) infinite;
+}
