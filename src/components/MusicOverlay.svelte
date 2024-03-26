@@ -16,25 +16,22 @@
   onMount(() => {
     ws = new WebSocket("wss://api.lanyard.rest/socket");
     ws.addEventListener("message", (event: any) => {
-      console.log("a");
       const message = JSON.parse(event.data);
-      console.log(message);
       switch (message.op) {
         case 1: {
-          console.log("b");
           ws?.send(
             JSON.stringify({
               op: 2,
               d: {
                 subscribe_to_id: "228965621478588416",
               },
-            })
+            }),
           );
           setInterval(() => {
             ws?.send(
               JSON.stringify({
                 op: 3,
-              })
+              }),
             );
           }, message.d.heartbeat_interval);
           break;
@@ -57,7 +54,7 @@
     setInterval(() => {
       if (state === "playing") {
         progress = `${Math.round(
-          ((Date.now() - start) / (end - start)) * 100
+          ((Date.now() - start) / (end - start)) * 100,
         )}%`;
       }
     }, 1000);
@@ -69,16 +66,22 @@
 </script>
 
 {#if state === "playing"}
-  <a class="musicoverlay" href="https://open.spotify.com/track/{trackId}">
-    <img class="icon squiggly" src={music} alt="" />
-    <div class="texts">
-      <span class="squiggly title">{title}</span>
-      <span class="squiggly artist">{artist}</span>
+  <a
+    class="musicoverlay"
+    href="https://open.spotify.com/track/{trackId}"
+    target="_blank"
+  >
+    <div class="inner">
+      <img class="icon squiggly" src={music} alt="" />
+      <div class="texts">
+        <span class="squiggly title">{title}</span>
+        <span class="squiggly artist">{artist}</span>
+      </div>
+      <div class="progress-outer squiggly">
+        <div class="progress-inner" style="width: {progress}" />
+      </div>
     </div>
     <img class="squiggly cover" src={cover} alt="" />
-    <div class="progress-outer squiggly">
-      <div class="progress-inner" style="width: {progress}" />
-    </div>
   </a>
 {/if}
 
@@ -88,8 +91,26 @@
     bottom: 0.5rem;
     right: 0.5rem;
     display: flex;
-    align-items: center;
+    align-items: stretch;
     background-color: rgba(0, 0, 0, 0.05);
+  }
+  @media (max-width: 768px) {
+    .musicoverlay {
+      width: calc(100vw - 1rem);
+    }
+  }
+  @media (prefers-color-scheme: dark) {
+    .musicoverlay {
+      background-color: rgba(255, 255, 255, 0.05);
+    }
+  }
+  .musicoverlay .inner {
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 3.5rem;
+    padding-right: 0.5rem;
+    flex-grow: 1;
   }
   .musicoverlay .icon {
     width: 2rem;
@@ -110,10 +131,14 @@
     font-size: 0.75rem;
     color: #666;
   }
+  @media (prefers-color-scheme: dark) {
+    .musicoverlay .texts .artist {
+      color: #aaa;
+    }
+  }
   .musicoverlay .cover {
     height: 3.5rem;
     aspect-ratio: 1 / 1;
-    margin-left: 0.5rem;
   }
   .progress-outer {
     position: absolute;
@@ -126,5 +151,13 @@
   .progress-inner {
     height: 100%;
     background-color: rgba(0, 0, 0, 0.5);
+  }
+  @media (prefers-color-scheme: dark) {
+    .progress-outer {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+    .progress-inner {
+      background-color: rgba(255, 255, 255, 0.5);
+    }
   }
 </style>

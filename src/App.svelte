@@ -15,6 +15,21 @@
     const url = new URL(window.location.href);
     const hash = url.hash;
     if (hash === "#de") tab = "de";
+
+    console.log(`
+                       _     
+                      | |    
+   ___ _ __ __ _   ___| |__  
+  / __| '__/ _\` | / __| '_ \\ 
+ | (__| | | (_| |_\\__ \\ | | |
+  \\___|_|  \\__, (_)___/_| |_|
+            __/ |  hey  👋      
+           |___/    there!
+
+
+    you can find the source code here:
+  https://github.com/OfficialCRUGG/links
+    `);
   });
 </script>
 

@@ -180,6 +180,11 @@
   ul.linklist li a.active {
     background-color: rgba(173, 20, 255, 0.1);
   }
+  @media (prefers-color-scheme: dark) {
+    ul.linklist li a.active {
+      background-color: rgba(209, 123, 255, 0.2);
+    }
+  }
   ul.linklist li a span.username {
     font-size: 1rem;
     color: #666;
@@ -207,7 +212,9 @@
     font-size: 1.5rem;
     font-family: inherit;
     cursor: pointer;
+    color: inherit;
   }
+
   ul.linklist button img {
     width: 1.5rem;
     height: 1.5rem;
@@ -237,5 +244,6 @@
     display: flex;
     align-items: center;
     gap: 0.5rem;
+    color: inherit;
   }
 </style>
