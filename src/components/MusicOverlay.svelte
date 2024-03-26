@@ -93,6 +93,8 @@
     display: flex;
     align-items: stretch;
     background-color: rgba(0, 0, 0, 0.05);
+    backdrop-filter: blur(50px);
+    -webkit-backdrop-filter: blur(50px);
   }
   @media (max-width: 768px) {
     .musicoverlay {
