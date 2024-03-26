@@ -14,11 +14,24 @@ html,
 body,
 #app {
   overflow: hidden;
+  height: 100vh;
+}
+
+@media (max-width: 768px) {
+  #app {
+    overflow-y: scroll;
+  }
+  #contents {
+    padding-bottom: 10rem;
+  }
 }
 
 @font-face {
   font-family: "HelvetiHand";
-  src: url("HelvetiHand.ttf") format("truetype");
+  src: url("/HelvetiHand.woff2") format("woff2"),
+    url("/HelvetiHand.woff") format("woff"),
+    url("/HelvetiHand.otf") format("opentype"),
+    url("/HelvetiHand.ttf") format("truetype");
 }
 
 #app {
@@ -26,7 +39,7 @@ body,
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
-  font-family: "HelvetiHand", "Comic Sans MS", cursive;
+  font-family: "HelvetiHand", "Comic Sans MS", "Comic Sans", cursive;
   background: #ccc;
   color: black;
   padding-top: 5rem;
