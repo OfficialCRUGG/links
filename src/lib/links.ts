@@ -8,12 +8,6 @@ export const links: Link[] = [
     language: "en",
   },
   {
-    title: "Mastodon",
-    url: "https://mastodon.world/@%m",
-    username: "@crugg@mastodon.world",
-    language: "en",
-  },
-  {
     title: "GitHub",
     url: "https://github.com/%",
     username: "OfficialCRUGG",
@@ -56,6 +50,13 @@ export const links: Link[] = [
     language: "en",
   },
   {
+    title: "Mastodon",
+    url: "https://mastodon.world/@%m",
+    username: "@crugg@mastodon.world",
+    language: "en",
+    inactive: true,
+  },
+  {
     title: "Tumblr",
     url: "https://%.tumblr.com",
     username: "crugg",
@@ -72,7 +73,7 @@ export const links: Link[] = [
   {
     title: "Bluesky",
     url: "https://bsky.app/profile/%@",
-    username: "@crugg.bsky.social",
+    username: "@crg.sh",
     language: "en",
     inactive: true,
   },
@@ -80,6 +81,18 @@ export const links: Link[] = [
     title: "Twitter (X)",
     url: "https://twitter.com/%@",
     username: "@CRUGGde",
+    language: "de",
+  },
+  {
+    title: "Bluesky",
+    url: "https://bsky.app/profile/%@",
+    username: "@crugg.de",
+    language: "de",
+  },
+  {
+    title: "Mastodon",
+    url: "https://mastodon.social/@%m",
+    username: "@crugg@mastodon.social",
     language: "de",
   },
   {
